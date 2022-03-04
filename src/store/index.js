@@ -1,3 +1,4 @@
+// Utilisation de @reduxjs/toolkit pour améliorer l'expérience de dév avec Redux
 import { configureStore } from "@reduxjs/toolkit"
 import AuthSliceReducer from "./auth-slice"
 import FavoriteSliceReducer from "./favorite-series-slice"

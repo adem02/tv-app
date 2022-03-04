@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage"
 import AuthPage from "./pages/AuthPage"
 import FavoritePage from "./pages/FavoritePage"
 
+// Composant App, gérant la guarde de route
 function App() {
   const userIsLoggged = useSelector((state) => state.auth.userIsLogged)
 
@@ -14,17 +15,20 @@ function App() {
       <Switch>
         <Route exact path="/">
           {!userIsLoggged && <Redirect to="auth" />}
-          {userIsLoggged && <HomePage />}
+          {/* Si Utilisateur non connecté, redirection à la page d'authentification */}
+          {userIsLoggged && <HomePage />} {/* Si Utilisasateur connecté */}
         </Route>
-
         <Route path="/auth">
-          {!userIsLoggged && <AuthPage />}
+          {!userIsLoggged && <AuthPage />} {/* Si Utilisasateur non connecté */}
           {userIsLoggged && <Redirect to="/" />}
+          {/* Si Utilisasateur connecté, redirection à la page d'accueil */}
         </Route>
 
         <Route path="/favorites">
           {!userIsLoggged && <Redirect to="auth" />}
+          {/* Si Utilisasateur non connecté, redirection à la page d'authentification */}
           {userIsLoggged && <FavoritePage />}
+          {/* Si Utilisasateur non connecté */}
         </Route>
       </Switch>
     </Layout>

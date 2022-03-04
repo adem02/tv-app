@@ -6,6 +6,11 @@ import { signUser } from "../../../store/auth-actions"
 
 const apiKey = "AIzaSyCpNNjVEZHtKQZV1fIx8rSga1PW-O8mWcE"
 
+// Composant de gestion de l'authentification d'un utilisateur
+// J'ai utilisé (Firebase auth rest api)
+// Méthodes présentes : Inscription/Connexion.
+// La déconnexion est gérée par la simple supression du token (cf. /src/store/auth-slice)
+// Persistance des données de connexion en utilisant localStorage
 const AuthForm = () => {
   const [log, setLog] = useState(false)
   const [userCredentials, setUserCredentials] = useState({

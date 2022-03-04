@@ -12,6 +12,7 @@ import classes from "./index.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { AuthActions } from "../../../store/auth-slice"
 
+// Entête de l'application, avec affichage conditionnel selon l'authentification
 const Header = () => {
   const userIsLogged = useSelector((state) => state.auth.userIsLogged)
   const dispatch = useDispatch()
@@ -34,13 +35,14 @@ const Header = () => {
             component="div"
             sx={{ flexGrow: 1, textAlign: "center" }}
           >
-            News
+            Series
           </Typography>
           <Button color="inherit">
             <Fragment>
-              {!userIsLogged ? (
+              {!userIsLogged ? ( //Si utilisateur non connecté
                 <Link to="auth">Login</Link>
               ) : (
+                //Si utilisateur connecté
                 <Link
                   to="auth"
                   onClick={() => dispatch(AuthActions.signOutUser())}
